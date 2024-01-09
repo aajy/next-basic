@@ -1,5 +1,4 @@
 import styles from './page.module.scss';
-console.log(styles);
 
 export default function Home() {
   return (
