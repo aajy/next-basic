@@ -1,4 +1,5 @@
 import Header from '../components/header/header';
+import './styles/globals.scss';
 
 export const metadata = {
   title: 'Main Page',
