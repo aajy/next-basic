@@ -7,3 +7,10 @@ export default function Gallery() {
 		</main>
 	);
 }
+
+export const generateMetadata = () => {
+	return {
+		title: 'gallery Page',
+		discription: 'Information of ABC Comapny including President, crew info',
+	};
+};
