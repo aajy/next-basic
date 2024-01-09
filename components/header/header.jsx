@@ -1,12 +1,10 @@
 'use client';
 import styles from './header.module.scss';
-console.log(styles);
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Header() {
 	const pathname = usePathname();
-	console.log(pathname);
 	return (
 		<header className={styles.header}>
 			<ul>
