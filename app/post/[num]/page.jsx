@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function PostDetail() {
   const { num } = useParams();
-  const [Post, setPost] = useState(0);
+  const [Post, setPost] = useState(null);
 
   useEffect(() => {
     const fetchPostById = async (url) => {
@@ -19,8 +19,8 @@ export default function PostDetail() {
 
   return (
     <div>
-      <h2>{Post.title}</h2>
-      <p>{Post.body}</p>
+      <h2>{Post?.title}</h2>
+      <p>{Post?.body}</p>
     </div>
   );
 }
