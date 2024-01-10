@@ -7,3 +7,18 @@ export default function Home() {
     </main>
   );
 }
+
+/*
+Brendan Eich (Javascript)
+
+Ryan Dahl (Node, Type)
+
+React (Facebook ---> meta)
+
+Next (Vercel)
+
+Nescape --> Explore(MS) --> FireFox(Mozilla) --> Chrome (Chrome)
+
+W3C vs MDN
+
+*/
