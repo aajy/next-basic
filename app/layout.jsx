@@ -23,6 +23,7 @@ const roboto = Rubik_Maze({
   subsets: ['latin'],
   display: 'swap',
   preload: true, //subsets가 지정되어 있을시 프리로드 기능사용
+  variable: '--font-roboto', //직접 변수명 등록
 });
 
 console.log(roboto);
@@ -35,10 +36,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      {/* 아래처럼 직접등록한 변수명을 설정시 해당 JSX요소 안쪽에서는 css에서 등록된 변수명으로 폰트 설정가능  */}
+      <body className={`wrap ${roboto.variable}`}>
         <Header />
-        <h1 className="roboto">No Google Font</h1>
-        <h1 className={roboto.className}>Google Font</h1>
+        <h1>Google Font</h1>
         {children}
       </body>
     </html>
