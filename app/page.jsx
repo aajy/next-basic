@@ -13,18 +13,23 @@ export default function Home() {
         <Image
           src={pic2}
           alt="image"
-          width={300}
-          height={300}
           quality={75}
           fill
           //속성이 fill일때 next가 크기 산정이 어려우므로, 특정 크기 미만의 브라우저폭에 대한 사이즈크기 지정 권장
           sizes="(min-width: 808px) 50vw, 100vw"
-          priority
+          placeholder="blur"
         />
       </div>
 
       <div className={clsx(styles.pic)}>
-        <Image src={pic1} alt="image" quality={75} />
+        <Image
+          src={pic1}
+          alt="image"
+          quality={75}
+          fill
+          sizes="(min-width: 808px) 50vw, 100vw"
+          placeholder="blur"
+        />
       </div>
     </main>
   );
@@ -43,6 +48,8 @@ export default function Home() {
   8. Image컴포넌트 호출시 가급적 width, height속성을 지정해야지 next가 빌드시에 해당 사이즈에 맞는 최적화작업을 함
   9. 이미지의 크키가 고정값이 아닐때에는 fill적용 (연결되어 있는 style의 넓이,높이를 판한해서 최적화)
   10. fill속성 적용시 추가적으로 하면 좋은 속성 
+  11. placeholder="blur"로 지정시 (로컬이미지일떄) 미리 용량은 blur이미지를 먼저 출력하고 전체이미지 렌더링 완료시 변경처리 (주의점: placeholder지정시 lazy-loading기능 제거됨, priority적용시에는 placeholder동작안됨)
+  12. 처음 마운트 화면에 보일 큰 이미지에 적용할 수 있는 2가지 옵션 (1-priority지정 or 2-placeholder지정)
 
 
 */
