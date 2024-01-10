@@ -1,5 +1,14 @@
 import Header from '../components/header/header';
 import './styles/globals.scss';
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({
+	weight: '400',
+	subsets: ['latin'],
+	display: 'swap',
+});
+
+console.log(roboto);
 
 export const metadata = {
 	title: 'Main Page',
@@ -11,6 +20,8 @@ export default function RootLayout({ children }) {
 		<html lang='en'>
 			<body>
 				<Header />
+				<h1 className='roboto'>No Google Font</h1>
+				<h1 className={roboto.className}>Google Font</h1>
 				{children}
 			</body>
 		</html>
