@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
 export default function PostList() {
   const [Posts, setPosts] = useState([]);
@@ -22,7 +23,11 @@ export default function PostList() {
     <ul>
       {Posts.map((post, idx) => {
         if (idx >= 10) return null;
-        return <li key={post.id}>{post.title}</li>;
+        return (
+          <li key={post.id}>
+            <Link href={`/post/${post.id}`}>{post.title}</Link>
+          </li>
+        );
       })}
     </ul>
   );
