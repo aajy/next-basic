@@ -8,29 +8,6 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <h1>Main Page</h1>
-
-      <div className={clsx(styles.pic)}>
-        <Image
-          src={pic2}
-          alt="image"
-          quality={75}
-          fill
-          //속성이 fill일때 next가 크기 산정이 어려우므로, 특정 크기 미만의 브라우저폭에 대한 사이즈크기 지정 권장
-          sizes="(min-width: 808px) 50vw, 100vw"
-          placeholder="blur"
-        />
-      </div>
-
-      <div className={clsx(styles.pic)}>
-        <Image
-          src={pic1}
-          alt="image"
-          quality={75}
-          fill
-          sizes="(min-width: 808px) 50vw, 100vw"
-          placeholder="blur"
-        />
-      </div>
     </main>
   );
 }
