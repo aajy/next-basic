@@ -24,6 +24,7 @@ export default function Post() {
 			}
 		});
 	};
+	//순서4- 목록페이지에서 삭제된 게시글도 갱신되 정보값으로 목록 데이터 다시 출력
 	useEffect(() => {
 		fetch('/api/requestPost')
 			.then((data) => data.json())
@@ -44,7 +45,6 @@ export default function Post() {
 						<h2>
 							<Link href={`/post/${post.id}`}>{post.title}</Link>
 						</h2>
-						<button onClick={() => handleDelete(post.id)}>delete</button>
 					</article>
 				);
 			})}
