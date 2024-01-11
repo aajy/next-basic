@@ -3,21 +3,21 @@ import { useEffect, useState } from 'react';
 
 export default function PostDetail({ params }) {
 	const { id } = params;
-	const [Data, setData] = useState({});
+	const [PostEl, setPostEl] = useState(null);
 
 	useEffect(() => {
-		const fetchPost = async (url) => {
-			const data = await fetch(url, { method: 'GET' });
-			const json = await data.json();
-			console.log('json', json.result);
-			setData(json.result);
-		};
-
-		fetchPost(`/api/requestPost/${id}`);
-	}, []);
+		console.log(id);
+		fetch(`/api/requestPost/${id}`)
+			.then((data) => data.json())
+			.then((json) => {
+				console.log(json);
+				setPostEl(json.result);
+			});
+	}, [id]);
 	return (
 		<div>
-			<h2>{`${id} 번째`}</h2>
+			<h2>{`${parseInt(id) + 1} 번째 게시글 상세페이지`}</h2>
+			<p>{PostEl && PostEl.name}</p>
 		</div>
 	);
 }
