@@ -6,7 +6,7 @@ export default function PostDetail({ params }) {
   const [PostEl, setPostEl] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/postRequest/${id}`)
+    fetch(`/api/requestPost/${id}`)
       .then((data) => data.json())
       .then((json) => {
         console.log(json);
