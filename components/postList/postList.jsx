@@ -1,31 +1,29 @@
 'use client';
-import Link from 'next/link';
+
 import { useEffect, useState } from 'react';
 
 export default function PostList() {
-	const [Posts, setPosts] = useState([]);
+	const [Post, setPost] = useState([]);
 
 	useEffect(() => {
-		const fetchPosts = async (url) => {
-			const data = await fetch(url);
-			const result = await data.json();
-			console.log(result);
-			setPosts(result);
+		const fetchPost = async (url) => {
+			const data = await fetch(url, { method: 'GET' });
+			const json = await data.json();
+			console.log('json', json.result);
+			setPost(json.result);
 		};
 
-		fetchPosts('https://jsonplaceholder.typicode.com/posts');
+		fetchPost('/api/post');
 	}, []);
-
 	return (
-		<ul>
-			{Posts.map((post, idx) => {
-				if (idx >= 10) return null;
+		<div className='postList'>
+			{Post.map((post) => {
 				return (
-					<li key={post.id}>
-						<Link href={`/post/${post.id}`}>{post.title}</Link>
-					</li>
+					<article key={post.name}>
+						<h2>{post.name}</h2>
+					</article>
 				);
 			})}
-		</ul>
+		</div>
 	);
 }
