@@ -1,18 +1,15 @@
-import Header from '../components/header/header';
-import './styles/globals.scss';
+import '@/styles/globals.scss';
 import { Roboto } from 'next/font/google';
 import clsx from 'clsx';
-//npm i clsx
+import Header from '@/components/header/header';
 
 const roboto = Roboto({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
-  preload: true, //subsets가 지정되어 있을시 프리로드 기능사용
-  variable: '--font-roboto', //직접 변수명 등록
+  preload: true,
+  variable: '--font-roboto',
 });
-
-const isRoboto = false;
 
 export const metadata = {
   title: 'Main Page',
@@ -22,8 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* clsx활용시 변수에 조건문 적용 가능 */}
-      <body className={clsx('wrap', isRoboto && roboto.variable)}>
+      <body className={clsx('wrap', roboto.variable)}>
         <Header />
         {children}
       </body>

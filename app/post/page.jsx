@@ -1,6 +1,8 @@
 'use client';
+import styles from './post.module.scss';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import clsx from 'clsx';
 
 export default function Post() {
   const [Post, setPost] = useState([]);
@@ -12,7 +14,7 @@ export default function Post() {
   }, []);
 
   return (
-    <div className="postList">
+    <div className={clsx(styles.post)}>
       {Post.map((post) => {
         return (
           <article key={post.name}>
